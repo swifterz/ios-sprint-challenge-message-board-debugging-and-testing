@@ -23,4 +23,26 @@ class Message_BoardUITests: XCTestCase {
         app.launch()
     }
     
+        private var createThread: XCUIElement {
+            return app.tables.textFields["Create a new thread:"]
+        }
+
+        private var sender: XCUIElement {
+            return app.textFields["NameTextField"]
+        }
+
+        private var messageTextView: XCUIElement {
+            return app.textViews["MessageTextField"]
+        }
+    //
+        
+        func testCreatingThread() {
+            let threadTextField = app.textFields["Create a new thread:"]
+            threadTextField.tap()
+            threadTextField.typeText("Enayatullah\n")
+            let cell = app.tables.cells.staticTexts["Enayatullah"]
+            XCTAssertEqual(cell.label, "Enayatullah")
+            
+        }
+    
 }
