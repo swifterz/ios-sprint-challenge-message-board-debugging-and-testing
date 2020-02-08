@@ -19,7 +19,12 @@ class MessageDetailViewController: UIViewController {
             let messageThread = messageThread else { return }
         
         messageThreadController?.createMessage(in: messageThread, withText: messageText, sender: senderName, completion: {
-            print("Message created!")
+            print("Message created!") // prints now
+            
+            // app needs to go back after tapping send. adding a pop
+            DispatchQueue.main.async {
+                self.navigationController?.popViewController(animated: true)
+            }
         })
     }
 

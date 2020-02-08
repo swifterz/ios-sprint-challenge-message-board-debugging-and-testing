@@ -33,7 +33,7 @@ class MessageThreadDetailTableViewController: UITableViewController {
 
         let message = messageThread?.messages[indexPath.row]
         
-        cell.textLabel?.text = message?.text
+        cell.textLabel?.text = message?.text // updated
         cell.detailTextLabel?.text = message?.sender
         
         return cell
@@ -42,7 +42,8 @@ class MessageThreadDetailTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddMesage" {
+        
+        if segue.identifier == "AddMessage" { // update identifier was missing an 'S'
             guard let destinationVC = segue.destination as? MessageDetailViewController else { return }
             
             destinationVC.messageThreadController = messageThreadController
