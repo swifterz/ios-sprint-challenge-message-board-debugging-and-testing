@@ -20,6 +20,8 @@ class MessageThreadController {
             return
         }
         
+        //Bug: at JSON data decoding error, expected to decode Array<any> but found a dictionary instead.
+        
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             
             if let error = error {
@@ -72,7 +74,7 @@ class MessageThreadController {
             self.messageThreads.append(thread)
             completion()
             
-        }
+            } .resume() // was missing
     }
     
     func createMessage(in messageThread: MessageThread, withText text: String, sender: String, completion: @escaping () -> Void) {
