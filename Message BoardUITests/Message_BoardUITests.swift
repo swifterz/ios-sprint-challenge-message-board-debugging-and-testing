@@ -57,8 +57,13 @@ class Message_BoardUITests: XCTestCase {
     func testSelectingMessageThread() {
         
         testCreatingThread()
+//        let navnTextField = app.textFields["Enayatullah"]
+//        let textSender = app.textFields["Enter your name:"]
         let textSender = app.textFields["Enter your name:"]
-        let detail = app.textViews["MessageTextField"]
+//        NameTextField
+        let detail = app.textViews["MessageTextView"]
+//        let myName = "Enayatullah"
+//        let cell = app.tables.cells.staticTexts["Enayatullah"]
         
         app.tables.staticTexts["Enayatullah"].tap() // tap name
         XCTAssert(app.navigationBars.staticTexts["Enayatullah"].exists) // navigation bar text
@@ -67,11 +72,12 @@ class Message_BoardUITests: XCTestCase {
         
     
 //        sender.tap() // tap sender
-        textSender.tap()
+//        textSender.tap()
 //        sender.typeText("Enayatullah") // user the text
         
-        app.typeText("Enayatullah") // Fails
-        
+//        textSender.typeText("Enayatullah") // Fails
+//        XCTAssertEqual(textSender.value as? String, myName)
+//        XCTAssertEqual(cell.label, "Enayatullah")
         
 //
         
@@ -87,6 +93,8 @@ class Message_BoardUITests: XCTestCase {
         let messageText = app.tables.staticTexts["Detail text"]
         XCTAssertTrue(messageText.exists)
         
+        
+                
     }
     
     
