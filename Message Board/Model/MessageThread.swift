@@ -25,13 +25,15 @@ class MessageThread: Codable, Equatable {
         
         let title = try container.decode(String.self, forKey: .title)
         let identifier = try container.decode(String.self, forKey: .identifier)
-        let messages = try container.decodeIfPresent([Message].self, forKey: .messages) ?? []
+        // changed Message to string:messgae and.compactMAp to get ride of all nil values or optional
+        let messages = try container.decodeIfPresent([String:Message].self, forKey: .messages)?.compactMap{ $0.value} ?? []
         
         self.title = title
         self.identifier = identifier
         self.messages = messages
     }
 
+    // Error: stringValue: "messageText"
     
     struct Message: Codable, Equatable {
         
