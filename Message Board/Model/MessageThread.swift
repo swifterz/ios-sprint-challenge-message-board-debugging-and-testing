@@ -37,12 +37,12 @@ class MessageThread: Codable, Equatable {
     
     struct Message: Codable, Equatable {
         
-        let messageText: String
+        let text: String // updated JSON file shows as text not MesageText
         let sender: String
         let timestamp: Date
         
         init(text: String, sender: String, timestamp: Date = Date()) {
-            self.messageText = text
+            self.text = text
             self.sender = sender
             self.timestamp = timestamp
         }
